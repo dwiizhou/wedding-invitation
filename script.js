@@ -5,6 +5,26 @@ if (guest) {
   document.getElementById("guestName").textContent = guest;
 }
 
+/* Slideshow */
+let slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+function showNextSlide() {
+  let prev = slides[currentSlide];
+  prev.classList.remove("active");
+  prev.classList.add("prev");
+
+  currentSlide = (currentSlide + 1) % slides.length;
+  let next = slides[currentSlide];
+  next.classList.add("active");
+
+  setTimeout(() => prev.classList.remove("prev"), 1000);
+}
+
+// Ganti slide tiap 5 detik
+setInterval(showNextSlide, 5000);
+
+
 // Countdown
 const eventDate = new Date("Dec 20, 2025 18:00:00").getTime();
 const countdown = document.getElementById("countdown");
