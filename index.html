@@ -32,6 +32,7 @@
     h1 {
       font-size: 2em;
       margin-bottom: 20px;
+      animation: fadeIn 2s ease;
     }
     .btn {
       background: #ff7b7b;
@@ -42,9 +43,18 @@
       font-size: 1.2em;
       transition: background 0.3s ease;
       cursor: pointer;
+      animation: bounce 2s infinite;
     }
     .btn:hover {
       background: #e85b5b;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
@@ -54,23 +64,13 @@
     <button class="btn" onclick="openInvitation()">💌 Buka Undangan</button>
   </div>
 
-  <!-- Musik (ganti file mp3 dengan lagu kamu) -->
-  <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
-
   <script>
     function openInvitation() {
       const overlay = document.getElementById("overlay");
-      const music = document.getElementById("bgMusic");
-
-      // Play musik
-      music.play();
-
-      // Fade out
+      // efek fade-out sebelum pindah ke main.html
       overlay.style.opacity = "0";
-
-      // Redirect ke index.html setelah 1 detik
       setTimeout(() => {
-        window.location.href = "main.html";
+        window.location.href = "main.html"; // arahkan ke undangan utama
       }, 1000);
     }
   </script>
