@@ -96,7 +96,7 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
   -webkit-line-clamp: 3;   /* maksimal 3 baris */
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis; /* jika lebih dari 3 baris, dipotong */
+  /*text-overflow: ellipsis; /* jika lebih dari 3 baris, dipotong */
   text-align: center;
 }
 
