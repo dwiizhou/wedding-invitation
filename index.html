@@ -5,29 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Pernikahan</title>
   <style>
-    body { margin:0; font-family: 'Segoe UI', sans-serif; background:#fafafa; color:#333; overflow-x:hidden; }
-    header { text-align:center; padding:80px 20px; background:#e4c1f9; color:#fff; }
-    header h1 { font-size:2.5em; margin-bottom:10px; }
-    header p { font-size:1.2em; }
-    .countdown { text-align:center; font-size:1.8em; margin-top:20px; color:#d62828; }
-    section { padding:50px 20px; max-width:1000px; margin:auto; }
-    h2 { text-align:center; margin-bottom:30px; color:#6a0572; }
-    iframe { border:0; border-radius:10px; }
-    footer { text-align:center; padding:20px; background:#eee; margin-top:40px; }
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan</title>
-  <style>
     body {
       margin:0;
       font-family: 'Segoe UI', sans-serif;
       background:#fafafa;
       color:#333;
-      overflow-x:hidden;
+      overflow:hidden; /* kunci scroll saat overlay tampil */
     }
     header { text-align:center; padding:80px 20px; background:#e4c1f9; color:#fff; }
     header h1 { font-size:2.5em; margin-bottom:10px; }
@@ -37,7 +20,7 @@
     h2 { text-align:center; margin-bottom:30px; color:#6a0572; }
     iframe { border:0; border-radius:10px; }
     footer { text-align:center; padding:20px; background:#eee; margin-top:40px; }
- 
+
     /* Opening Overlay */
     .overlay {
       background: url("https://raw.githubusercontent.com/dwiizhou/TestingWO/refs/heads/main/3d-cartoon-style-character.jpg?token=GHSAT0AAAAAADL6ODRVNFEQRL4S2O3NPXNE2GWR37Q") no-repeat center center;
@@ -50,11 +33,19 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      color: #fff; /* ganti putih jadi biar kontras */
+      color: #fff;
       text-align: center;
       z-index: 9999;
       transition: opacity 1s ease;
       overflow: hidden;
+    }
+    /* Lapisan transparan */
+    .overlay::before {
+      content: "";
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.4); /* 0.4 = gelap sedang */
+      z-index: -1; /* biar tetap di belakang teks */
     }
     .overlay h1 {
       font-size: 2em;
@@ -91,7 +82,7 @@
   <div class="overlay" id="overlay">
     <h1>Wendy & Windy</h1>
     <h2>Kepada Bapak/Ibu/Saudara/i <br> 敬呈先生/夫人/女士台啟 <br></h2>
-    <h2> <p id="guestName">Tamu Undangan</p> </h2>
+    <h2><p id="guestName">Tamu Undangan</p></h2>
     <button class="btn" onclick="openInvitation()">💌 Buka Undangan</button>
   </div>
 
@@ -165,7 +156,7 @@
       overlay.style.opacity = "0";
       setTimeout(() => {
         overlay.style.display = "none";
-        document.body.style.overflow = "auto"; // aktifkan scroll lagi setelah overlay hilang
+        document.body.style.overflow = "auto"; // aktifkan scroll setelah overlay hilang
       }, 1000);
     }
   </script>
