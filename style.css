@@ -44,7 +44,7 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
 
 .overlay-text {
   position: absolute;
-  bottom: 30%;
+  bottom: 20%;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
@@ -59,7 +59,6 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
 }
 
 .gratitude {
-  margin-top: 20px;
   font-size: 1.5em;
   font-weight: 500;
   color: #fff;
