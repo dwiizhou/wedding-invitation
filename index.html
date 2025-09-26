@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Invited!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #ffddcc;
+    }
+    p.details {
+      font-size: 1.2em;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+    .countdown {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #ffebcd;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #ff7b7b;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #e85b5b;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="card">
+      <h1>✨ You're Invited ✨</h1>
+      <p class="details">
+        We’re celebrating a special moment together! <br><br>
+        <strong>Date:</strong> October 15, 2025 <br>
+        <strong>Time:</strong> 6:00 PM <br>
+        <strong>Location:</strong> The Grand Hall, New York
+      </p>
+      <div class="countdown" id="countdown"></div>
+      <a href="https://forms.gle/yourRSVPform" class="btn">RSVP Here</a>
+    </div>
+  </div>
+
+  <script>
+    // Countdown Timer
+    const eventDate = new Date("Oct 15, 2025 18:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "The event has started!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
