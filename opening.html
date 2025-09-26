@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buka Undangan</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://source.unsplash.com/1200x800/?wedding,flowers') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top:0; left:0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .btn {
+      background: #ff7b7b;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #e85b5b;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay">
+    <h1>The Wedding of<br>A & B</h1>
+    <button class="btn" onclick="openInvitation()">💌 Buka Undangan</button>
+  </div>
+
+  <!-- Musik (ganti file mp3 dengan lagu kamu) -->
+  <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
+
+  <script>
+    function openInvitation() {
+      const overlay = document.getElementById("overlay");
+      const music = document.getElementById("bgMusic");
+
+      // Play musik
+      music.play();
+
+      // Fade out
+      overlay.style.opacity = "0";
+
+      // Redirect ke index.html setelah 1 detik
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
