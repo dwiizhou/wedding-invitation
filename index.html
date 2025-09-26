@@ -62,7 +62,7 @@
   <div class="overlay" id="overlay">
     <h1>Wendy & Windy</h1>
     <h2>Kepada Bapak/Ibu/Saudara/i <br> 敬呈先生/夫人/女士台啟 <br></h2>
-    <h2> <p id="guestName">Kepada Yth: Tamu Undangan</p> </h2>
+    <h2> <p id="guestName">Tamu Undangan</p> </h2>
     <button class="btn" onclick="openInvitation()">💌 Buka Undangan</button>
   </div>
 
@@ -70,7 +70,7 @@
      const params = new URLSearchParams(window.location.search);
     const guest = params.get("to");
     if (guest) {
-      document.getElementById("guestName").textContent = "Kepada Yth: " + guest;
+      document.getElementById("guestName").textContent = + guest;
     }
     
     function openInvitation() {
