@@ -11,14 +11,14 @@ let currentSlide = 0;
 
 function showNextSlide() {
   let prev = slides[currentSlide];
-  prev.classList.remove("active");
-  prev.classList.add("prev");
-
   currentSlide = (currentSlide + 1) % slides.length;
   let next = slides[currentSlide];
-  next.classList.add("active");
 
-  setTimeout(() => prev.classList.remove("prev"), 1000);
+  next.style.left = "0";      // langsung masuk
+  next.classList.add("active");
+  
+  prev.style.left = "-100%";  // geser keluar
+  prev.classList.remove("active");
 }
 
 // Ganti slide tiap 5 detik
