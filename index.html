@@ -24,7 +24,7 @@
     /* Opening Overlay */
     .overlay {
       background: url("https://github.com/dwiizhou/TestingWO/blob/main/3d-cartoon-style-character.jpg?raw=true") no-repeat center center;
-      background-size: cover; /* biar full layar */
+      background-size: cover;
       position: fixed;
       width: 100%;
       height: 100%;
@@ -38,20 +38,29 @@
       z-index: 9999;
       transition: opacity 1s ease;
       overflow: hidden;
+      position: relative; /* penting supaya ::before nempel di overlay */
     }
-    
+
     /* Lapisan transparan */
     .overlay::before {
       content: "";
       position: absolute;
       top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.25); /* cukup 25% gelap */
-      z-index: 0; /* biar tetap di belakang teks */
+      background: rgba(0,0,0,0.25); /* 25% gelap */
+      z-index: 0; /* tetap di belakang teks */
     }
+
+    /* pastikan teks di atas lapisan */
+    .overlay h1,
+    .overlay h2,
+    .overlay button {
+      z-index: 1;
+      position: relative;
+    }
+
     .overlay h1 {
       font-size: 2em;
       margin-bottom: 20px;
-      animation: fadeIn 2s ease;
     }
     .btn {
       background: #ff7b7b;
@@ -64,13 +73,11 @@
       cursor: pointer;
       animation: bounce 2s infinite;
       border: none;
+      z-index: 1;
+      position: relative;
     }
     .btn:hover { background: #e85b5b; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -150,7 +157,7 @@
       const overlay = document.getElementById("overlay");
       const music = document.getElementById("bgMusic");
 
-      // Play music (but user must click, agar tidak diblokir browser)
+      // Play music (harus klik dulu agar tidak diblokir browser)
       music.play();
 
       // Fade out overlay
