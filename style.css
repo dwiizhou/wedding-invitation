@@ -42,16 +42,33 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
   left: -100%;
 }
 
-.overlay-bottom {
+.overlay-text {
   position: absolute;
-  bottom: 30px;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50% , -50%);
   text-align: center;
   color: white;
   z-index: 3;
   text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
+
+.overlay-text h1 {
+  font-size: 2.2em; /* sesuaikan dengan style lama */
+  margin-bottom: 10px;
+}
+
+.overlay-bottom {
+  position: absolute;
+  bottom: 20px; /* jarak dari bawah header */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontal */
+  text-align: center;
+  z-index: 3;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+  
 .overlay-bottom .countdown {
   display: flex;
   justify-content: center;
@@ -65,10 +82,6 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
   border-radius: 10px;
   color: #d62828;
   font-size: 1em;
-}
-.overlay-text h1 {
-  font-size: 2.2em; /* sesuaikan dengan style lama */
-  margin-bottom: 10px;
 }
 
 .overlay-bottom .gratitude {
