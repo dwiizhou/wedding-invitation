@@ -15,7 +15,6 @@
     header { text-align:center; padding:80px 20px; background:#e4c1f9; color:#fff; }
     header h1 { font-size:2.5em; margin-bottom:10px; }
     header p { font-size:1.2em; }
-    .countdown { text-align:center; font-size:1.8em; margin-top:20px; color:#d62828; }
     section { padding:50px 20px; max-width:1000px; margin:auto; }
     h2 { text-align:center; margin-bottom:30px; color:#6a0572; }
     iframe { border:0; border-radius:10px; }
@@ -39,16 +38,17 @@
       transition: opacity 1s ease;
       overflow: hidden;
     }
-
-    /* pastikan teks tetap di atas gambar */
-    .overlay h1,
-    .overlay h2,
-    .overlay button {
-      z-index: 1;
-      position: relative;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* biar lebih jelas di atas gambar */
+    .overlay::before {
+      content: "";
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.25); /* lapisan transparan */
+      z-index: 0;
     }
-
+    .overlay h1, .overlay h2, .overlay p, .overlay button {
+      position: relative;
+      z-index: 1;
+    }
     .overlay h1 {
       font-size: 2em;
       margin-bottom: 20px;
@@ -64,14 +64,50 @@
       cursor: pointer;
       animation: bounce 2s infinite;
       border: none;
-      z-index: 1;
-      position: relative;
+      margin-top: 20px;
     }
     .btn:hover { background: #e85b5b; }
 
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
+    }
+
+    /* Countdown styling */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .countdown-box {
+      background: rgba(255,255,255,0.85);
+      padding: 15px 20px;
+      border-radius: 15px;
+      text-align: center;
+      min-width: 80px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      animation: pop 1.5s infinite alternate;
+    }
+    .countdown-box span {
+      display: block;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #6a0572;
+      animation: glow 2s infinite alternate;
+    }
+    .countdown-box label {
+      font-size: 0.8em;
+      color: #555;
+    }
+    @keyframes pop {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+    @keyframes glow {
+      0% { color: #6a0572; text-shadow: 0 0 5px #ff7b7b; }
+      100% { color: #ff7b7b; text-shadow: 0 0 15px #6a0572; }
     }
   </style>
 </head>
@@ -80,7 +116,7 @@
   <!-- Opening Overlay -->
   <div class="overlay" id="overlay">
     <h1>Wendy & Windy</h1>
-    <h2>Kepada Bapak/Ibu/Saudara/i <br> 敬呈先生/夫人/女士台啟 <br></h2>
+    <h2>Kepada Bapak/Ibu/Saudara/i <br> 敬呈先生/夫人/女士台啟</h2>
     <h2><p id="guestName">Tamu Undangan</p></h2>
     <button class="btn" onclick="openInvitation()">💌 Buka Undangan</button>
   </div>
@@ -131,25 +167,25 @@
     const countdown = document.getElementById("countdown");
 
     setInterval(function() {
-    const now = new Date().getTime();
-    const distance = eventDate - now;
+      const now = new Date().getTime();
+      const distance = eventDate - now;
 
-    if (distance < 0) {
-      countdown.innerHTML = "<p>Acara telah dimulai 🎉</p>";
-    return;
-    }
+      if (distance < 0) {
+        countdown.innerHTML = "<p>Acara telah dimulai 🎉</p>";
+        return;
+      }
 
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-    const seconds = Math.floor((distance%(1000*60))/1000);
+      const days = Math.floor(distance / (1000*60*60*24));
+      const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+      const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+      const seconds = Math.floor((distance%(1000*60))/1000);
 
-    countdown.innerHTML = `
-      <div class="countdown-box"><span>${days}</span><label>Hari</label></div>
-      <div class="countdown-box"><span>${hours}</span><label>Jam</label></div>
-      <div class="countdown-box"><span>${minutes}</span><label>Menit</label></div>
-      <div class="countdown-box"><span>${seconds}</span><label>Detik</label></div>
-    `;
+      countdown.innerHTML = `
+        <div class="countdown-box"><span>${days}</span><label>Hari</label></div>
+        <div class="countdown-box"><span>${hours}</span><label>Jam</label></div>
+        <div class="countdown-box"><span>${minutes}</span><label>Menit</label></div>
+        <div class="countdown-box"><span>${seconds}</span><label>Detik</label></div>
+      `;
     }, 1000);
 
     // Opening handler
@@ -157,12 +193,14 @@
       const overlay = document.getElementById("overlay");
       const music = document.getElementById("bgMusic");
 
+      // Play music (user harus klik agar tidak diblokir browser)
       music.play();
 
+      // Fade out overlay
       overlay.style.opacity = "0";
       setTimeout(() => {
         overlay.style.display = "none";
-        document.body.style.overflow = "auto";
+        document.body.style.overflow = "auto"; // aktifkan scroll setelah overlay hilang
       }, 1000);
     }
   </script>
