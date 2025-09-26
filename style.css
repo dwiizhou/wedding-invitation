@@ -85,10 +85,19 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
 }
 
 .overlay-bottom .gratitude {
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 500;
   color: #fff;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  max-width: 600px;        /* batasi lebar agar teks wrap */
+  margin: 0 auto;
+  line-height: 1.4em;      /* jarak antar baris */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* maksimal 3 baris */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* jika lebih dari 3 baris, dipotong */
+  text-align: center;
 }
 
 
