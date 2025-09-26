@@ -164,6 +164,7 @@
       overlay.style.opacity = "0";
       setTimeout(() => {
         overlay.style.display = "none";
+        document.body.style.overflow = "auto"; // aktifkan scroll lagi setelah overlay hilang
       }, 1000);
     }
   </script>
