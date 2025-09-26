@@ -14,6 +14,7 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
 
 /* Slideshow Header */
 .slideshow {
+  background: #000; /* fallback saat slide berganti */
   position: relative;
   width: 100%;
   height: 100vh; /* full layar */
