@@ -20,7 +20,7 @@ footer { text-align:center; padding:20px; background:#eee; margin-top:40px; }
 
 /* Overlay */
 .overlay {
-  background: url("/3d-cartoon-style-character.jpg") no-repeat center center;
+  background: url("assets/3d-cartoon-style-character.jpg") no-repeat center center;
   background-size: cover;
   position: fixed;
   width: 100%;
