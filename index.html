@@ -38,14 +38,21 @@
       z-index: 9999;
       transition: opacity 1s ease;
       overflow: hidden;
+      position: relative; /* penting agar ::before bisa nempel */
     }
+    * pastikan teks di atas overlay transparan */
+    .overlay h1, .overlay h2, .overlay .btn {
+      position: relative;
+      z-index: 1;
+    }
+    
     /* Lapisan transparan */
     .overlay::before {
       content: "";
       position: absolute;
       top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.4); /* 0.4 = gelap sedang */
-      z-index: -1; /* biar tetap di belakang teks */
+      background: rgba(0,0,0,0.25); /* cukup 25% gelap */
+      z-index: 0; /* biar tetap di belakang teks */
     }
     .overlay h1 {
       font-size: 2em;
