@@ -46,7 +46,7 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -40%);
   text-align: center;
   color: white;
   z-index: 3;
@@ -56,6 +56,14 @@ header h1 { font-size:2.2em; margin-bottom:10px; }
 .overlay-text h1 {
   font-size: 2.2em; /* sesuaikan dengan style lama */
   margin-bottom: 10px;
+}
+
+.gratitude {
+  margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 
