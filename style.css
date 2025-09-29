@@ -73,7 +73,7 @@ body {
   color: #fff;
   max-width: 800px;        /* batasi lebar maksimal, tapi fleksibel */
   margin: 0 auto;          /* rata tengah */
-  padding: 0 15px;         /* biar ada jarak dari pinggir layar */
+  padding: 0 5px;         /* biar ada jarak dari pinggir layar */
   line-height: 1.6em;      /* jarak antar baris lebih lega */
   text-align: center;
 }
