@@ -66,15 +66,18 @@ body {
   color: #d62828;
   font-size: 1em;
 }
+
 .overlay-bottom .gratitude {
-  font-size: 0.8em;
-  font-weight: 600;
+  font-size: 1em;          /* lebih besar, nyaman dibaca */
+  font-weight: 300;        /* lebih ringan, elegan */
   color: #fff;
-  width: 1000px;
-  margin: auto;
-  line-height: 1.4em;
+  max-width: 800px;        /* batasi lebar maksimal, tapi fleksibel */
+  margin: 0 auto;          /* rata tengah */
+  padding: 0 15px;         /* biar ada jarak dari pinggir layar */
+  line-height: 1.6em;      /* jarak antar baris lebih lega */
   text-align: center;
 }
+
 
 /* Circle Carousel */
 .circle-carousel {
