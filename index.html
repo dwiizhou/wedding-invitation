@@ -184,6 +184,99 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
 });
 </script>
 
+  <section id="couple" style="padding:60px 20px; background:#fffafc;">
+  <h2 style="text-align:center; color:#6a0572; margin-bottom:40px;">
+    Our Beloved Couple
+  </h2>
+
+  <div class="couple-container">
+    <!-- Groom -->
+    <div class="person">
+      <div class="photo groom"></div>
+      <h3>Wendy</h3>
+      <p>Putra dari<br>Bapak A & Ibu B</p>
+    </div>
+
+    <!-- Separator -->
+    <div class="separator">
+      <span class="line"></span>
+      <div class="and">&</div>
+      <span class="line"></span>
+    </div>
+
+    <!-- Bride -->
+    <div class="person">
+      <div class="photo bride"></div>
+      <h3>Windy</h3>
+      <p>Putri dari<br>Bapak C & Ibu D</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.couple-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Groom & Bride */
+.person {
+  text-align: center;
+  max-width: 200px;
+}
+.person .photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.person h3 {
+  margin-top: 15px;
+  font-size: 1.4em;
+  color: #e85b5b;
+}
+.person p {
+  margin-top: 5px;
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.4em;
+}
+
+/* Foto Groom & Bride */
+.groom {
+  background-image: url("assets/groom1.jpeg");
+}
+.bride {
+  background-image: url("assets/bride1.jpeg");
+}
+
+/* Separator tengah */
+.separator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.separator .line {
+  width: 2px;
+  height: 50px;
+  background: #e85b5b;
+  margin: 6px 0;
+}
+.separator .and {
+  font-size: 2em;
+  color: #6a0572;
+  font-weight: bold;
+}
+</style>
+
+
 
   <footer>
     <p>Terima kasih atas doa dan kehadiran Anda 🙏</p>
