@@ -91,4 +91,3 @@ function openInvitation() {
     document.body.style.overflow = "auto";
   }, 1000);
 }
-
