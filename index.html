@@ -65,10 +65,35 @@
     <h2>Galeri</h2>
   </section>
 
-  <section>
-    <h2>RSVP</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Memuat…></iframe>
-  </section>
+  <section id="rsvp" style="padding:40px; text-align:center; background:#fdf6f9;">
+  <h2>RSVP / Konfirmasi Kehadiran</h2>
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/formResponse" 
+        method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+    
+    <!-- Nama -->
+    <div style="margin-bottom:15px;">
+      <input type="text" name="entry.1234567890" 
+             placeholder="Nama Anda" required
+             style="padding:10px; width:250px; border-radius:8px; border:1px solid #ccc;">
+    </div>
+
+    <!-- Kehadiran -->
+    <div style="margin-bottom:15px;">
+      <select name="entry.877086558" required
+              style="padding:10px; width:250px; border-radius:8px; border:1px solid #ccc;">
+        <option value="">Pilih Kehadiran</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+        <option value="1 Orang">1 Orang</option>
+        <option value="2 Orang">2 Orang</option>
+      </select>
+    </div>
+
+    <!-- Tombol kirim -->
+    <button type="submit" 
+            style="padding:12px 30px; border:none; background:#e85b5b; color:white; border-radius:25px; font-size:1em; cursor:pointer;">
+      Kirim
+    </button>
+  </form>
 
   <footer>
     <p>Terima kasih atas doa dan kehadiran Anda 🙏</p>
