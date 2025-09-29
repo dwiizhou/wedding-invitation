@@ -51,6 +51,36 @@ setInterval(function() {
   `;
 },1000);
 
+// Carousel circle
+const track = document.getElementById("carouselTrack");
+let index = 0;
+const total = track.children.length;
+
+// Auto slide tiap 5 detik
+setInterval(() => {
+  index = (index + 1) % total;
+  track.style.transform = `translateX(-${index * 140}px)`; // 120px + margin
+}, 5000);
+
+// Geser manual (swipe)
+let startX = 0;
+track.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) {
+    // geser kiri
+    index = (index + 1) % total;
+  } else if (endX - startX > 50) {
+    // geser kanan
+    index = (index - 1 + total) % total;
+  }
+  track.style.transform = `translateX(-${index * 140}px)`;
+});
+
+
 // Opening handler
 function openInvitation() {
   const overlay = document.getElementById("overlay");
