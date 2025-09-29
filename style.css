@@ -69,11 +69,11 @@ body {
 
 .overlay-bottom .gratitude {
   font-size: 1em;          /* lebih besar, nyaman dibaca */
-  font-weight: 300;        /* lebih ringan, elegan */
+  font-weight: 500;        /* lebih ringan, elegan */
   color: #fff;
   width: 100%;             /* penuhi lebar layar */
   max-width: 800px;        /* batasi lebar maksimal, tapi fleksibel */
-  margin: 0 auto;          /* rata tengah */
+  margin: 0 ;         
   padding: 0 5px;         /* biar ada jarak dari pinggir layar */
   line-height: 1.6em;      /* jarak antar baris lebih lega */
   text-align: justify;
