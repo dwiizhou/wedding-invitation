@@ -95,6 +95,25 @@
     </button>
   </form>
 
+    <div id="thanksMsg" style="display:none; color:green; margin-top:15px;">
+  ✅ Terima kasih, RSVP Anda sudah terkirim!
+</div>
+
+<script>
+document.getElementById("rsvp").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  fetch("https://docs.google.com/forms/d/e/FORM_ID/formResponse", {
+    method: "POST",
+    body: new FormData(this),
+    mode: "no-cors"
+  }).then(() => {
+    this.style.display = "none";
+    document.getElementById("thanksMsg").style.display = "block";
+  });
+});
+</script>
+
   <footer>
     <p>Terima kasih atas doa dan kehadiran Anda 🙏</p>
   </footer>
