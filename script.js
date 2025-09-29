@@ -51,43 +51,40 @@ setInterval(function() {
   `;
 },1000);
 
-// Carousel circle Start
-const track = document.getElementById("carouselTrack");
-const circleSlides = document.querySelectorAll(".circle");
-const total = circleSlides.length;
-const slideWidth = 140; // 120px + margin
-let index = 0;
+// Carousel circle seamless Start
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.getElementById("carouselTrack");
+  if (!track) return;
 
-// clone slide pertama → taruh di akhir
-const firstClone = circles[0].cloneNode(true);
-track.appendChild(firstClone);
+  // Gandakan isi track supaya ada dua set item
+  track.innerHTML = track.innerHTML + track.innerHTML;
 
-// fungsi geser
-function moveToSlide(newIndex) {
-  index = newIndex;
-  track.style.transition = "transform 0.5s ease";
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
-}
+  // Hitung jumlah item asli
+  const itemCount = track.children.length / 2;
 
-// event setelah transisi selesai
-track.addEventListener("transitionend", () => {
-  // kalau sudah sampai clone → reset ke slide pertama tanpa animasi
-  if (index === total) {
-    track.style.transition = "none";
-    index = 0;
-    track.style.transform = `translateX(0)`;
-    // trigger reflow supaya animasi berikutnya tetap jalan
-    setTimeout(() => {
-      track.style.transition = "transform 0.5s ease";
-    });
-  }
+  // Atur durasi animasi berdasarkan jumlah item
+  const baseDuration = 12; // detik
+  const duration = Math.max(8, baseDuration + itemCount * 0.8);
+  track.style.setProperty("--duration", duration + "s");
+
+  // Pause kalau disentuh (mobile)
+  const carousel = track.closest(".circle-carousel");
+  carousel.addEventListener("touchstart", () => {
+    track.style.animationPlayState = "paused";
+  }, { passive: true });
+  carousel.addEventListener("touchend", () => {
+    track.style.animationPlayState = "running";
+  });
+
+  // Pause kalau hover (desktop)
+  carousel.addEventListener("mouseenter", () => {
+    track.style.animationPlayState = "paused";
+  });
+  carousel.addEventListener("mouseleave", () => {
+    track.style.animationPlayState = "running";
+  });
 });
-
-// auto slide
-setInterval(() => {
-  if (index < total - 1) {
-    moveToSlide(index + 1);
-}, 5000);  // Carousel circle End
+// Carousel circle seamless End Carousel circle End
 
 
 
