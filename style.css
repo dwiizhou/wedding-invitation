@@ -103,8 +103,8 @@ body {
 }
 
 .circle {
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 50px;
+  min-height: 500px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
