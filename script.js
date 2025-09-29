@@ -14,18 +14,15 @@ function showNextSlide() {
   currentSlide = (currentSlide + 1) % slideItems.length;
   let next = slideItems[currentSlide];
 
-  next.style.left = "0";      // langsung masuk
+  next.style.left = "0";
   next.classList.add("active");
   
-  prev.style.left = "-100%";  // geser keluar
+  prev.style.left = "-100%";
   prev.classList.remove("active");
 }
-
-// Ganti slide tiap 5 detik
 setInterval(showNextSlide, 5000);
 
-
-// Countdown
+/* Countdown */
 const eventDate = new Date("Dec 20, 2025 18:00:00").getTime();
 const countdown = document.getElementById("countdown");
 
@@ -51,49 +48,40 @@ setInterval(function() {
   `;
 },1000);
 
-// Carousel circle seamless Start
+/* Carousel circle seamless */
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.getElementById("carouselTrack");
   if (!track) return;
 
-  // Gandakan isi track supaya ada dua set item
+  // Gandakan isi track → 2 set
   track.innerHTML = track.innerHTML + track.innerHTML;
 
-  // Hitung jumlah item asli
   const itemCount = track.children.length / 2;
-
-  // Atur durasi animasi berdasarkan jumlah item
   const baseDuration = 12; // detik
   const duration = Math.max(8, baseDuration + itemCount * 0.8);
   track.style.setProperty("--duration", duration + "s");
 
-  // Pause kalau disentuh (mobile)
   const carousel = track.closest(".circle-carousel");
-  carousel.addEventListener("touchstart", () => {
-    track.style.animationPlayState = "paused";
-  }, { passive: true });
-  carousel.addEventListener("touchend", () => {
-    track.style.animationPlayState = "running";
-  });
-
-  // Pause kalau hover (desktop)
   carousel.addEventListener("mouseenter", () => {
     track.style.animationPlayState = "paused";
   });
   carousel.addEventListener("mouseleave", () => {
     track.style.animationPlayState = "running";
   });
+  carousel.addEventListener("touchstart", () => {
+    track.style.animationPlayState = "paused";
+  }, { passive: true });
+  carousel.addEventListener("touchend", () => {
+    track.style.animationPlayState = "running";
+  });
 });
-// Carousel circle seamless End Carousel circle End
 
-
-
-// Opening handler
+/* Opening overlay */
 function openInvitation() {
   const overlay = document.getElementById("overlay");
   const music = document.getElementById("bgMusic");
 
-  music.play(); // user click -> musik boleh jalan
+  music.play().catch(()=>{}); 
   overlay.style.opacity = "0";
   setTimeout(() => {
     overlay.style.display = "none";
