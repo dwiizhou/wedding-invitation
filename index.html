@@ -12,46 +12,42 @@
     <h1>Wendy & Windy</h1>
     <h2>Kepada Bapak/Ibu/Saudara/i <br> 敬呈先生/夫人/女士台啟</h2>
     <p id="guestName">Tamu Undangan</p>
-    <button class="btn" onclick="openInvitation()">💌 Buka Undangan/請按請柬</button>
+    <button class="btn" onclick="openInvitation()">💌 Buka Undangan / 請按請柬</button>
   </div>
 
   <!-- Musik -->
   <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" loop></audio>
 
-  <!-- Konten Undangan -->
   <!-- Header Slideshow -->
-<header class="slideshow">
-  <div class="slide active" style="background-image: url('assets/bg2.jpg');"></div>
-  <div class="slide" style="background-image: url('assets/bg3.jpg');"></div>
+  <header class="slideshow">
+    <div class="slide active" style="background-image: url('assets/bg2.jpg');"></div>
+    <div class="slide" style="background-image: url('assets/bg3.jpg');"></div>
 
-  <div class="overlay-text">
-    <h1>The Wedding of<br>Wendy & Windy</h1>
-  </div>
-
-  <!-- Overlay bottom: countdown + gratitude -->
-  <div class="overlay-bottom">
-    <div class="countdown" id="countdown"></div>
-    <div class="gratitude">
-      Atas berkat dan kasih karunia dari Tuhan kita. Didalam sukacita kami
-      mengundang Bapak/Ibu/Saudara/i kiranya berkenan meringankan langkah untuk
-      menghadiri acara pernikahan kami.
+    <div class="overlay-text">
+      <h1>The Wedding of<br>Wendy & Windy</h1>
     </div>
-  </div>
-</header>
 
-  <!-- Seamless Circle Carousel -->
-<section class="seamless-carousel" aria-label="carousel">
-  <div class="seamless-track" id="seamlessTrack">
-    <!-- 5 item asli -->
-    <div class="circle"><img src="assets/img1.jpg" alt=""></div>
-    <div class="circle"><img src="assets/img2.jpg" alt=""></div>
-    <div class="circle"><img src="assets/img3.jpg" alt=""></div>
-    <div class="circle"><img src="assets/img4.jpg" alt=""></div>
-    <div class="circle"><img src="assets/img5.jpg" alt=""></div>
-    <!-- DO NOT manually duplicate here; JS akan menggandakannya -->
-  </div>
-</section>
+    <!-- Countdown + Gratitude -->
+    <div class="overlay-bottom">
+      <div class="countdown" id="countdown"></div>
+      <div class="gratitude">
+        Atas berkat dan kasih karunia dari Tuhan kita. Didalam sukacita kami
+        mengundang Bapak/Ibu/Saudara/i kiranya berkenan meringankan langkah untuk
+        menghadiri acara pernikahan kami.
+      </div>
+    </div>
+  </header>
 
+  <!-- Circle Carousel -->
+  <section class="circle-carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="circle"><img src="assets/img1.jpg" alt=""></div>
+      <div class="circle"><img src="assets/img2.jpg" alt=""></div>
+      <div class="circle"><img src="assets/img3.jpg" alt=""></div>
+      <div class="circle"><img src="assets/img4.jpg" alt=""></div>
+      <div class="circle"><img src="assets/img5.jpg" alt=""></div>
+    </div>
+  </section>
 
   <section>
     <h2>Detail Acara</h2>
