@@ -58,6 +58,10 @@ const total = circleSlides.length;
 const slideWidth = 140; // 120px + margin
 let index = 0;
 
+// clone slide pertama → taruh di akhir
+const firstClone = circles[0].cloneNode(true);
+track.appendChild(firstClone);
+
 // fungsi geser
 function moveToSlide(newIndex) {
   index = newIndex;
@@ -65,16 +69,24 @@ function moveToSlide(newIndex) {
   track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
+// event setelah transisi selesai
+track.addEventListener("transitionend", () => {
+  // kalau sudah sampai clone → reset ke slide pertama tanpa animasi
+  if (index === total) {
+    track.style.transition = "none";
+    index = 0;
+    track.style.transform = `translateX(0)`;
+    // trigger reflow supaya animasi berikutnya tetap jalan
+    setTimeout(() => {
+      track.style.transition = "transform 0.5s ease";
+    });
+  }
+});
+
 // auto slide
 setInterval(() => {
   if (index < total - 1) {
     moveToSlide(index + 1);
-  } else {
-    // reset langsung ke awal tanpa animasi
-    track.style.transition = "none";
-    index = 0;
-    track.style.transform = `translateX(0)`;
-  }
 }, 5000);  // Carousel circle End
 
 
