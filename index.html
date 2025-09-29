@@ -65,40 +65,109 @@
     <h2>Galeri</h2>
   </section>
 
-  <section id="rsvp" style="padding:40px; text-align:center; background:#fdf6f9;">
-  <h2>RSVP / Konfirmasi Kehadiran</h2>
-  <form id="rsvpForm"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/formResponse" 
-        method="POST">
-    
-    <!-- Nama -->
-    <div style="margin-bottom:15px;">
-      <input type="text" name="entry.1498135098" 
-             placeholder="Nama Anda" required
-             style="padding:10px; width:250px; border-radius:8px; border:1px solid #ccc;">
+  <section id="rsvp" style="padding:60px 20px; text-align:center; background:#fdf6f9;">
+  <h2 style="margin-bottom:30px; color:#6a0572;">RSVP / Konfirmasi Kehadiran</h2>
+
+  <div class="rsvp-card">
+    <form id="rsvpForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/formResponse" 
+          method="POST">
+
+      <!-- Nama -->
+      <div class="form-group">
+        <label for="nama">Nama Anda</label>
+        <input type="text" id="nama" name="entry.1498135098" placeholder="Tulis nama lengkap..." required>
+      </div>
+
+      <!-- Kehadiran -->
+      <div class="form-group">
+        <label for="kehadiran">Kehadiran</label>
+        <select id="kehadiran" name="entry.877086558" required>
+          <option value="">Pilih Kehadiran</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+          <option value="1 Orang">1 Orang</option>
+          <option value="2 Orang">2 Orang</option>
+        </select>
+      </div>
+
+      <!-- Tombol kirim -->
+      <button type="submit" class="btn-submit">Kirim</button>
+    </form>
+
+    <div id="thanksMsg" class="thanks-msg">
+      ✅ Terima kasih, RSVP Anda sudah terkirim!
     </div>
+  </div>
+</section>
 
-    <!-- Kehadiran -->
-    <div style="margin-bottom:15px;">
-      <select name="entry.877086558" required
-              style="padding:10px; width:250px; border-radius:8px; border:1px solid #ccc;">
-        <option value="">Pilih Kehadiran</option>
-        <option value="Tidak Hadir">Tidak Hadir</option>
-        <option value="1 Orang">1 Orang</option>
-        <option value="2 Orang">2 Orang</option>
-      </select>
-    </div>
+<style>
+/* Card container */
+.rsvp-card {
+  background: #fff;
+  max-width: 400px;
+  margin: auto;
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+.rsvp-card:hover {
+  transform: translateY(-4px);
+}
 
-    <!-- Tombol kirim -->
-    <button type="submit" 
-            style="padding:12px 30px; border:none; background:#e85b5b; color:white; border-radius:25px; font-size:1em; cursor:pointer;">
-      Kirim
-    </button>
-  </form>
+/* Input & Select */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  transition: border 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #e85b5b;
+  outline: none;
+}
 
-    <div id="thanksMsg" style="display:none; color:green; margin-top:15px;">
-  ✅ Terima kasih, RSVP Anda sudah terkirim!
-</div>
+/* Submit button */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff7b7b, #e85b5b);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+.btn-submit:hover {
+  background: linear-gradient(135deg, #e85b5b, #d62828);
+  transform: scale(1.02);
+}
+
+/* Thank you message */
+.thanks-msg {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+  color: green;
+}
+</style>
 
 <script>
 document.getElementById("rsvpForm").addEventListener("submit", function(e) {
@@ -109,11 +178,12 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
     body: new FormData(this),
     mode: "no-cors"
   }).then(() => {
-    this.style.display = "none";
-    document.getElementById("thanksMsg").style.display = "block";
+    this.style.display = "none"; // sembunyikan form
+    document.getElementById("thanksMsg").style.display = "block"; // tampilkan pesan
   });
 });
 </script>
+
 
   <footer>
     <p>Terima kasih atas doa dan kehadiran Anda 🙏</p>
