@@ -67,8 +67,9 @@
 
   <section id="rsvp" style="padding:40px; text-align:center; background:#fdf6f9;">
   <h2>RSVP / Konfirmasi Kehadiran</h2>
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/formResponse" 
-        method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+  <form id="rsvpForm"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/formResponse" 
+        method="POST">
     
     <!-- Nama -->
     <div style="margin-bottom:15px;">
@@ -100,7 +101,7 @@
 </div>
 
 <script>
-document.getElementById("rsvp").addEventListener("submit", function(e) {
+document.getElementById("rsvpForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   fetch("https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/formResponse", {
