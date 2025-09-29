@@ -6,13 +6,13 @@ if (guest) {
 }
 
 /* Slideshow */
-let slides = document.querySelectorAll(".slide");
+let slideItems = document.querySelectorAll(".slide");
 let currentSlide = 0;
 
 function showNextSlide() {
-  let prev = slides[currentSlide];
-  currentSlide = (currentSlide + 1) % slides.length;
-  let next = slides[currentSlide];
+  let prev = slideItems[currentSlide];
+  currentSlide = (currentSlide + 1) % slideItems.length;
+  let next = slideItems[currentSlide];
 
   next.style.left = "0";      // langsung masuk
   next.classList.add("active");
@@ -53,8 +53,8 @@ setInterval(function() {
 
 // Carousel circle Start
 const track = document.getElementById("carouselTrack");
-const slides = document.querySelectorAll(".circle");
-const total = slides.length;
+const circleSlides = document.querySelectorAll(".circle");
+const total = circleSlides.length;
 const slideWidth = 140; // 120px + margin
 let index = 0;
 
