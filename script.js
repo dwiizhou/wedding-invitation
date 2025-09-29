@@ -53,76 +53,29 @@ setInterval(function() {
 
 // Carousel circle Start
 const track = document.getElementById("carouselTrack");
-let index = 0;
-const total = track.children.length;
-
-// Auto slide tiap 5 detik
-const track = document.getElementById("carouselTrack");
-const slides = track.children;
+const slides = document.querySelectorAll(".circle");
 const total = slides.length;
 const slideWidth = 140; // 120px + margin
-let index = 1; // mulai dari 1 (karena kita clone nanti)
-let autoSlide;
+let index = 0;
 
-function setupCarousel() {
-  // Clone pertama dan terakhir
-  const firstClone = slides[0].cloneNode(true);
-  const lastClone = slides[total - 1].cloneNode(true);
-
-  track.appendChild(firstClone);
-  track.insertBefore(lastClone, slides[0]);
-
-  // Atur posisi awal
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
-}
-setupCarousel();
-
+// fungsi geser
 function moveToSlide(newIndex) {
   index = newIndex;
   track.style.transition = "transform 0.5s ease";
   track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
-function handleTransitionEnd() {
-  if (index === 0) {
-    // Kalau di clone terakhir → lompat ke asli terakhir
-    track.style.transition = "none";
-    index = total;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  } else if (index === total + 1) {
-    // Kalau di clone pertama → lompat ke asli pertama
-    track.style.transition = "none";
-    index = 1;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
-}
-
-track.addEventListener("transitionend", handleTransitionEnd);
-
-// Auto slide tiap 5 detik
-function startAutoSlide() {
-  autoSlide = setInterval(() => {
+// auto slide
+setInterval(() => {
+  if (index < total - 1) {
     moveToSlide(index + 1);
-  }, 5000);
-}
-startAutoSlide();
-
-// Geser manual (swipe)
-let startX = 0;
-track.addEventListener("touchstart", e => {
-  clearInterval(autoSlide);
-  startX = e.touches[0].clientX;
-});
-
-track.addEventListener("touchend", e => {
-  let endX = e.changedTouches[0].clientX;
-  if (startX - endX > 50) {
-    moveToSlide(index + 1); // geser kiri
-  } else if (endX - startX > 50) {
-    moveToSlide(index - 1); // geser kanan
+  } else {
+    // reset langsung ke awal tanpa animasi
+    track.style.transition = "none";
+    index = 0;
+    track.style.transform = `translateX(0)`;
   }
-  startAutoSlide();
-}); // Carousel circle End
+}, 5000);  // Carousel circle End
 
 
 
