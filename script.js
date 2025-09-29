@@ -51,34 +51,79 @@ setInterval(function() {
   `;
 },1000);
 
-// Carousel circle
+// Carousel circle Start
 const track = document.getElementById("carouselTrack");
 let index = 0;
 const total = track.children.length;
 
 // Auto slide tiap 5 detik
-setInterval(() => {
-  index = (index + 1) % total;
-  track.style.transform = `translateX(-${index * 140}px)`; // 120px + margin
-}, 5000);
+const track = document.getElementById("carouselTrack");
+const slides = track.children;
+const total = slides.length;
+const slideWidth = 140; // 120px + margin
+let index = 1; // mulai dari 1 (karena kita clone nanti)
+let autoSlide;
+
+function setupCarousel() {
+  // Clone pertama dan terakhir
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[total - 1].cloneNode(true);
+
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+
+  // Atur posisi awal
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+setupCarousel();
+
+function moveToSlide(newIndex) {
+  index = newIndex;
+  track.style.transition = "transform 0.5s ease";
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+function handleTransitionEnd() {
+  if (index === 0) {
+    // Kalau di clone terakhir → lompat ke asli terakhir
+    track.style.transition = "none";
+    index = total;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+  } else if (index === total + 1) {
+    // Kalau di clone pertama → lompat ke asli pertama
+    track.style.transition = "none";
+    index = 1;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+  }
+}
+
+track.addEventListener("transitionend", handleTransitionEnd);
+
+// Auto slide tiap 5 detik
+function startAutoSlide() {
+  autoSlide = setInterval(() => {
+    moveToSlide(index + 1);
+  }, 5000);
+}
+startAutoSlide();
 
 // Geser manual (swipe)
 let startX = 0;
 track.addEventListener("touchstart", e => {
+  clearInterval(autoSlide);
   startX = e.touches[0].clientX;
 });
 
 track.addEventListener("touchend", e => {
   let endX = e.changedTouches[0].clientX;
   if (startX - endX > 50) {
-    // geser kiri
-    index = (index + 1) % total;
+    moveToSlide(index + 1); // geser kiri
   } else if (endX - startX > 50) {
-    // geser kanan
-    index = (index - 1 + total) % total;
+    moveToSlide(index - 1); // geser kanan
   }
-  track.style.transform = `translateX(-${index * 140}px)`;
-});
+  startAutoSlide();
+}); // Carousel circle End
+
 
 
 // Opening handler
