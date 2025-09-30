@@ -10,7 +10,7 @@ teeebody {
 .slideshow {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: #000;
 }
@@ -39,8 +39,8 @@ teeebody {
   text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 .overlay-text h1 {
-  font-size: 2.2em;
-  margin: 0 15px; /* biar ga terlalu mentok kiri/kanan di HP */
+ font-size: clamp(1.5em, 5vw, 2em); /* minimum 1.5em, maksimum 2em */
+  margin: 0 10px;
 }
 
 /* Bagian Bawah */
@@ -72,11 +72,11 @@ teeebody {
 
 /* Gratitude */
 .overlay-bottom .gratitude {
-  font-size: 1em;
+  font-size: clamp(0.9em, 3.5vw, 1.1em);
   font-weight: 400;
   width: 100%;
   margin: 0;
-  padding: 0 12px;   /* sedikit jarak agar nyaman dibaca */
+  padding: 0 12px; /* cukup nyaman di HP */
   line-height: 1.6em;
   text-align: center;
 }
