@@ -76,9 +76,9 @@ teeebody {
   font-weight: 400;
   width: 100%;
   margin: 0;
-  padding: 0 12px; /* cukup nyaman di HP */
+  padding: 0 15px; /* cukup nyaman di HP */
   line-height: 1.6em;
-  text-align: center;
+  text-align: justify;
 }
 
 
