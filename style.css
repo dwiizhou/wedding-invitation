@@ -8,19 +8,17 @@ teeebody {
 
 /* Header Slideshow */
 .slideshow {
-  background: #000;
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background: #000;
 }
-
 .slide {
   position: absolute;
+  top: 0; left: 100%;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 100%;
   background-size: cover;
   background-position: center;
   transition: left 1s ease-in-out;
@@ -28,31 +26,36 @@ teeebody {
 }
 .slide.active { left: 0; }
 
+/* Judul Tengah */
 .overlay-text {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50% , -50%); 
+  left: 0;
+  width: 100%;                 /* full layar */
+  transform: translateY(-50%); /* hanya geser vertical */
   text-align: center;
-  color: white;
+  color: #fff;
   z-index: 3;
   text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 .overlay-text h1 {
   font-size: 2.2em;
-  margin-bottom: 10px;
+  margin: 0 15px; /* biar ga terlalu mentok kiri/kanan di HP */
 }
 
+/* Bagian Bawah */
 .overlay-bottom {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;       /* penuhi lebar layar */
   text-align: center;
   z-index: 5;
   color: white;
   text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
+
+/* Countdown */
 .overlay-bottom .countdown {
   display: flex;
   justify-content: center;
@@ -67,14 +70,14 @@ teeebody {
   font-size: 1em;
 }
 
+/* Gratitude */
 .overlay-bottom .gratitude {
-  font-size: 1em;          /* lebih besar, nyaman dibaca */
-  font-weight: 400;        /* lebih ringan, elegan */
-  color: #fff;
-  width: 100%;             /* penuhi lebar layar */
-  margin: 0 ;         
-  padding: 0 5px;         /* biar ada jarak dari pinggir layar */
-  line-height: 1.6em;      /* jarak antar baris lebih lega */
+  font-size: 1em;
+  font-weight: 400;
+  width: 100%;
+  margin: 0;
+  padding: 0 12px;   /* sedikit jarak agar nyaman dibaca */
+  line-height: 1.6em;
   text-align: center;
 }
 
