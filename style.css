@@ -114,6 +114,95 @@ teeebody {
   object-fit: cover;
 }
 
+/* Foto Groom and Bride */
+.couple-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 40px 20px;
+  background: #fffafc;
+}
+
+/* Groom & Bride section */
+.groom-section,
+.bride-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Foto + Info */
+.person {
+  text-align: center;
+  max-width: 200px;
+}
+.person .photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center top;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  margin: auto;
+}
+.person h3 {
+  margin-top: 15px;
+  font-size: 1.3em;
+  color: #e85b5b;
+}
+.person p {
+  margin-top: 5px;
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.4em;
+}
+
+/* Foto Groom & Bride */
+.groom {
+  background-image: url("assets/groom5.jpeg");
+}
+.bride {
+  background-image: url("assets/bride1.jpeg");
+  background-position: center top;
+}
+
+/* Label vertikal */
+.label-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.label-vertical .line {
+  width: 2px;
+  height: 40px;
+  background: #e85b5b;
+}
+.label-vertical .text {
+  writing-mode: vertical-rl;   /* vertikal */
+  text-orientation: upright;   /* huruf tetap tegak */
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #6a0572;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+/* Mobile responsif */
+@media (max-width: 600px) {
+  .person .photo {
+    width: 150px;
+    height: 150px;
+  }
+  .person h3 {
+    font-size: 1.1em;
+  }
+}
+
+
 /* Section */
 section { padding:40px 20px; max-width:1000px; margin:auto; }
 h2 { text-align:center; margin-bottom:20px; color:#6a0572; }
