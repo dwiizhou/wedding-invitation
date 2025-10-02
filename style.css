@@ -220,7 +220,7 @@ teeebody {
   color: #fff;                    /* tulisan putih */
   padding: 20px 10px;
   writing-mode: vertical-rl;      /* teks vertikal */
-  transform: rotate(90deg);      /* biar tulisan dari atas ke bawah */
+  /*transform: rotate(180deg);      /* biar tulisan dari atas ke bawah */
   text-align: center;
   font-weight: bold;
   font-size: 1.1em;
