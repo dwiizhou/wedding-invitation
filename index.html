@@ -131,9 +131,29 @@
     <h2>Galeri</h2>
   </section>
 
-  <section id="rsvp" style="padding:60px 20px; text-align:center; background:#fdf6f9;">
-  <h2 style="margin-bottom:30px; color:#6a0572;">RSVP / Konfirmasi Kehadiran</h2>
+  <section id="rsvp" style="padding:60px 20px; background:#f0f0f0;">
 
+  <!-- Foto pasangan -->
+  <div style="text-align:center; margin-bottom:20px;">
+    <img src="assets/couple3.jpeg" alt="Wendy & Windy" 
+         style="max-width:180px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
+  </div>
+
+  <!-- Judul -->
+  <h2 style="margin-bottom:10px; color:#6a0572; text-align:center;">
+    RSVP / Konfirmasi Kehadiran
+  </h2>
+  <h3 style="margin-bottom:20px; color:#444; text-align:center; font-weight:500; font-size:1.1em;">
+    敬请回复 / 敬请出席回覆
+  </h3>
+
+  <!-- Ajakan -->
+  <p style="text-align:center; max-width:600px; margin:0 auto 25px; font-size:1em; color:#333;">
+    Kirimkan konfirmasi kehadiran kepada mempelai melalui form berikut: <br>
+    请填写以下表格以确认您的出席
+  </p>
+
+  <!-- Card Form -->
   <div class="rsvp-card">
     <form id="rsvpForm"
           action="https://docs.google.com/forms/d/e/1FAIpQLSdYwJ3tZM_tkmUdztEDW_p8XX30oDXM4qt8P57qgpOlUjTb5w/formResponse" 
@@ -141,30 +161,32 @@
 
       <!-- Nama -->
       <div class="form-group">
-        <label for="nama">Nama Anda</label>
+        <label for="nama">Nama Anda / 您的名字</label>
         <input type="text" id="nama" name="entry.1498135098" placeholder="Tulis nama lengkap..." required>
       </div>
 
       <!-- Kehadiran -->
       <div class="form-group">
-        <label for="kehadiran">Kehadiran</label>
+        <label for="kehadiran">Kehadiran / 出席人数</label>
         <select id="kehadiran" name="entry.877086558" required>
           <option value="">Pilih Kehadiran</option>
-          <option value="Tidak Hadir">Tidak Hadir</option>
-          <option value="1 Orang">1 Orang</option>
-          <option value="2 Orang">2 Orang</option>
+          <option value="Tidak Hadir">Tidak Hadir / 无法出席</option>
+          <option value="1 Orang">1 Orang / 一人</option>
+          <option value="2 Orang">2 Orang / 二人</option>
         </select>
       </div>
 
       <!-- Tombol kirim -->
-      <button type="submit" class="btn-submit">Kirim</button>
+      <button type="submit" class="btn-submit">Kirim / 提交</button>
     </form>
 
     <div id="thanksMsg" class="thanks-msg">
-      ✅ Terima kasih, RSVP Anda sudah terkirim!
+      ✅ Terima kasih, RSVP Anda sudah terkirim! <br>
+      感谢您的回复！
     </div>
   </div>
 </section>
+
 
 <style>
 /* Card container */
