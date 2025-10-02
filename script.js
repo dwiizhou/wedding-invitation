@@ -79,10 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
 // Galeri
 
 const images = [
-  "assets/photo1.jpg",
-  "assets/photo2.jpg",
-  "assets/photo3.jpg",
-  "assets/photo4.jpg"
+  "assets/couple14.jpeg",
+  "assets/couple15.jpeg",
+  "assets/couple16.jpeg",
+  "assets/couple17.jpeg"
+  "assets/couple18.jpeg",
 ];
 
 let currentIndex = 0;
