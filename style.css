@@ -202,6 +202,74 @@ teeebody {
   }
 }
 
+/* Detail acara */
+.event-detail {
+  display: flex;
+  align-items: stretch;
+  max-width: 900px;
+  margin: 40px auto;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Kotak abu dengan tulisan vertikal */
+.event-label {
+  background: #888;               /* abu-abu */
+  color: #fff;                    /* tulisan putih */
+  padding: 20px 10px;
+  writing-mode: vertical-rl;      /* teks vertikal */
+  transform: rotate(180deg);      /* biar tulisan dari atas ke bawah */
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+}
+
+/* Konten acara */
+.event-info {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+}
+
+.event-info h3 {
+  color: #d62828;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.event-info p {
+  margin-bottom: 15px;
+  line-height: 1.5em;
+}
+
+.event-info .cn {
+  color: #555;
+  font-size: 0.95em;
+  display: block;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Tombol buka maps */
+.btn-map {
+  display: inline-block;
+  background: #e85b5b;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-map:hover {
+  background: #c71c1c;
+}
+
+
 
 /* Section */
 section { padding:40px 20px; max-width:1000px; margin:auto; }
