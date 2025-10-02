@@ -82,7 +82,7 @@ const images = [
   "assets/couple14.jpeg",
   "assets/couple15.jpeg",
   "assets/couple16.jpeg",
-  "assets/couple17.jpeg"
+  "assets/couple17.jpeg",
   "assets/couple18.jpeg",
 ];
 
