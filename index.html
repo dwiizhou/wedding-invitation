@@ -95,8 +95,6 @@
 
 
     <section class="event-detail">
-
-
   <!-- Content -->
   <div class="event-info">
     <h3>20 Desember 2025, Pukul 18:00 WIB</h3>
@@ -127,9 +125,7 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7850141737895!2d106.80832459999999!3d-6.1595412000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f783e4fb1821%3A0x7b22c6a4746a2a31!2sEMPURAU%20restaurant%20(new%20building)!5e0!3m2!1sid!2sid!4v1759128385375!5m2!1sid!2sid" width="100%" height="300" allowfullscreen></iframe>
   </section> -->
 
-  <section>
-    <h2>Galeri</h2>
-  </section>
+
 
   <section id="rsvp" style="padding:60px 20px; background:#f0f0f0;">
 
@@ -271,6 +267,21 @@ document.getElementById("rsvpForm").addEventListener("submit", function(e) {
   });
 });
 </script>
+
+
+      <section id="gallery" class="gallery-section">
+  <div class="gallery-main">
+    <img id="mainImage" src="assets/couple14.jpeg" alt="Foto Utama">
+  </div>
+
+  <div class="gallery-thumbnails">
+    <img src="assets/couple15.jpeg" class="active" onclick="showImage(0)">
+    <img src="assets/couple16.jpeg" onclick="showImage(1)">
+    <img src="assets/couple17.jpeg" onclick="showImage(2)">
+    <img src="assets/couple18.jpeg" onclick="showImage(3)">
+  </div>
+</section>
+
 
   <footer>
     <p>Terima kasih atas doa dan kehadiran Anda 🙏</p>
