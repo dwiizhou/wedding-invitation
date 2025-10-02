@@ -29,7 +29,7 @@ body {
 /* Judul Tengah */
 .overlay-text {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 0;
   width: 100%;                 /* full layar */
   transform: translateY(-50%); /* hanya geser vertical */
