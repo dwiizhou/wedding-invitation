@@ -76,6 +76,69 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Galeri
+
+const images = [
+  "assets/photo1.jpg",
+  "assets/photo2.jpg",
+  "assets/photo3.jpg",
+  "assets/photo4.jpg"
+];
+
+let currentIndex = 0;
+let interval;
+
+function showImage(index) {
+  currentIndex = index;
+  const mainImage = document.getElementById("mainImage");
+  const thumbnails = document.querySelectorAll(".gallery-thumbnails img");
+
+  // ubah foto utama
+  mainImage.src = images[index];
+
+  // zoom efek
+  mainImage.classList.add("zoom");
+  setTimeout(() => mainImage.classList.remove("zoom"), 500);
+
+  // update thumbnail aktif
+  thumbnails.forEach((thumb, i) => {
+    thumb.classList.toggle("active", i === index);
+  });
+}
+
+// slideshow otomatis
+function startSlideshow() {
+  interval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }, 5000);
+}
+
+// swipe gesture untuk HP
+const mainImage = document.getElementById("mainImage");
+let startX = 0;
+
+mainImage.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+mainImage.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (endX < startX - 50) {
+    // geser kiri
+    currentIndex = (currentIndex + 1) % images.length;
+  } else if (endX > startX + 50) {
+    // geser kanan
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+  }
+  showImage(currentIndex);
+});
+
+// mulai pertama kali
+showImage(0);
+startSlideshow();
+
+
 /* Opening overlay */
 function openInvitation() {
   const overlay = document.getElementById("overlay");
