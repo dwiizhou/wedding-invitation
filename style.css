@@ -182,7 +182,7 @@ body {
   background: #e85b5b;
 }
 .label-vertical .text {
-  writing-mode: vertical-rl;   /* vertikal */
+  writing-mode: vertical;   /* vertikal  = vertical-rl;  */
   text-orientation: upright;   /* huruf tetap tegak */
   font-size: 1.1em;
   font-weight: bold;
